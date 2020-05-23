@@ -1,10 +1,11 @@
-import {Reducer} from 'redux';
+import { Reducer } from 'redux';
 
 export interface IHomeState {
   data: string[];
   v: string;
   // 验证码
   verCode: string;
+  number: number;
 }
 
 export interface IHomeModelType {
@@ -22,12 +23,13 @@ const home: IHomeModelType = {
     data: [],
     v: '1.0',
     verCode: '',
+    number: 1,
   },
   effects: {},
 
   reducers: {
-    save(state, {payload}) {
-      return {...state, ...payload};
+    save(state, { payload }) {
+      return { ...state, ...payload };
     },
   },
 };
