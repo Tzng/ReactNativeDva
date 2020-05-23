@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
-import { connect } from 'react-redux';
 import { ConnectProps, ConnectState } from '@/models/connect';
+import { connect } from '@/utils/connect';
 
 interface IProps extends ConnectState, ConnectProps {
   dataLoading?: boolean;
@@ -14,6 +14,10 @@ interface IState {}
  * @author ${USER}
  * @date ${DATE}${TIME}
  */
+@connect(({ home, loading }: IProps) => ({
+  home,
+  dataLoading: loading.effects['home/zhihu'],
+}))
 class Home extends Component<IProps, IState> {
   state: IState = {};
 
@@ -63,7 +67,7 @@ class Home extends Component<IProps, IState> {
   render() {
     const {
       home: { number, content },
-      dataLoading
+      dataLoading,
     } = this.props;
     return (
       <View>
@@ -86,7 +90,4 @@ class Home extends Component<IProps, IState> {
   }
 }
 
-export default connect(({ home, loading }: IProps) => ({
-  home,
-  dataLoading: loading.effects['home/zhihu'],
-}))(Home);
+export default Home;
