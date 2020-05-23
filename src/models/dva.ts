@@ -1,21 +1,21 @@
 // @ts-ignore
-import {create} from 'dva-core';
+import { create } from 'dva-core';
 // @ts-ignore
 import createLoading from 'dva-loading';
 // @ts-ignore
 import immer from 'dva-immer';
-import {createLogger} from 'redux-logger';
+import { createLogger } from 'redux-logger';
 
 let app: {
-  use: (arg0: {onError(err: any): void}) => void;
+  use: (arg0: { onError(err: any): void }) => void;
   model: (arg0: any) => any;
   start: () => void;
-  _store: {dispatch: any};
-  getStore: () => {dispatch: any};
+  _store: { dispatch: any };
+  getStore: () => { dispatch: any };
   dispatch: any;
 };
 
-let store: {dispatch: any};
+let store: { dispatch: any };
 
 let dispatch;
 

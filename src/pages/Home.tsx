@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ConnectProps, ConnectState } from '@/models/connect';
 
 interface IProps extends ConnectState, ConnectProps {
-  a: string;
+  dataLoading?: boolean;
 }
 
 interface IState {}
@@ -47,7 +47,7 @@ class Home extends Component<IProps, IState> {
 
   fetchText = () => {
     this.props.dispatch({
-      type: 'home/baidu',
+      type: 'home/zhihu',
     });
   };
 
@@ -63,26 +63,30 @@ class Home extends Component<IProps, IState> {
   render() {
     const {
       home: { number, content },
+      dataLoading
     } = this.props;
     return (
       <View>
         <Text>你好：{number}</Text>
         <Button title="加" onPress={this.addNum} />
         <Button title="减" onPress={this.subNum} />
-        <Button title="异步请求" onPress={this.fetchText} />
+        <Button title="获取数据" onPress={this.fetchText} />
         <View>
           <Text>111</Text>
         </View>
         <Button title="清除数据" onPress={this.clearContent} />
         <Text>
           结果：
-          {content.map(item => (
-            <Text>{item.name}；</Text>
-          ))}
+          {dataLoading
+            ? '正在获取数据...'
+            : content.map(item => <Text key={item.name}>{item.name}；</Text>)}
         </Text>
       </View>
     );
   }
 }
 
-export default connect(({ home }: IProps) => ({ home }))(Home);
+export default connect(({ home, loading }: IProps) => ({
+  home,
+  dataLoading: loading.effects['home/zhihu'],
+}))(Home);

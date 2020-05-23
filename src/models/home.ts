@@ -14,7 +14,7 @@ export interface IHomeModelType {
   namespace: 'home';
   state: IHomeState;
   effects: {
-    baidu: Effect;
+    zhihu: Effect;
   };
   reducers: {
     save: Reducer<IHomeState>;
@@ -25,7 +25,6 @@ const fetchTest = async () => {
   const res = await fetch(
     'https://www.zhihu.com/api/v3/oauth/sms/supported_countries'
   );
-  console.log(res);
   const data = await res.json();
   console.log(data);
   return data;
@@ -45,9 +44,8 @@ const home: IHomeModelType = {
      * 说明：获取百度网页
      * @author allahbin
      */
-    *baidu(_, { call, put }) {
+    *zhihu(_, { call, put }) {
       const res = yield call(fetchTest);
-      console.log(res.data);
       yield put({
         type: 'save',
         payload: {
