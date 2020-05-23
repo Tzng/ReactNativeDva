@@ -1188,7 +1188,7 @@
 
 "@types/react-redux@^7.1.9":
   version "7.1.9"
-  resolved "https://registry.npm.taobao.org/@types/react-redux/download/@types/react-redux-7.1.9.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-redux%2Fdownload%2F%40types%2Freact-redux-7.1.9.tgz#280c13565c9f13ceb727ec21e767abe0e9b4aec3"
+  resolved "https://registry.npm.taobao.org/@types/react-redux/download/@types/react-redux-7.1.9.tgz#280c13565c9f13ceb727ec21e767abe0e9b4aec3"
   integrity sha1-KAwTVlyfE863J+wh52er4Om0rsM=
   dependencies:
     "@types/hoist-non-react-statics" "^3.3.0"
@@ -1636,6 +1636,13 @@ babel-plugin-jest-hoist@^24.9.0:
   integrity sha1-T4NwketAfgFEfIhDy+xUbQAC11Y=
   dependencies:
     "@types/babel__traverse" "^7.0.6"
+
+babel-plugin-root-import@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.npm.taobao.org/babel-plugin-root-import/download/babel-plugin-root-import-6.5.0.tgz#ac4016426b5d36c48127c73ad199fa72c9ff8817"
+  integrity sha1-rEAWQmtdNsSBJ8c60Zn6csn/iBc=
+  dependencies:
+    slash "^3.0.0"
 
 babel-plugin-syntax-trailing-function-commas@^7.0.0-beta.0:
   version "7.0.0-beta.0"

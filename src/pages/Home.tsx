@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ConnectProps, ConnectState } from '@/models/connect';
 import { connect } from '@/utils/connect';
+import NavigationUtil from '@/navigator/NavigationUtil';
 
 interface IProps extends ConnectState, ConnectProps {
   dataLoading?: boolean;
@@ -64,6 +65,12 @@ class Home extends Component<IProps, IState> {
     });
   };
 
+  toDetails = () => {
+    NavigationUtil.toPage('Details', {
+      title: '你好',
+    });
+  };
+
   render() {
     const {
       home: { number, content },
@@ -72,6 +79,7 @@ class Home extends Component<IProps, IState> {
     return (
       <View>
         <Text>你好：{number}</Text>
+        <Button title="去详情" onPress={this.toDetails} />
         <Button title="加" onPress={this.addNum} />
         <Button title="减" onPress={this.subNum} />
         <Button title="获取数据" onPress={this.fetchText} />
