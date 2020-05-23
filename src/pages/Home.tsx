@@ -45,12 +45,41 @@ class Home extends Component<IProps, IState> {
     });
   };
 
+  fetchText = () => {
+    this.props.dispatch({
+      type: 'home/baidu',
+    });
+  };
+
+  clearContent = () => {
+    this.props.dispatch({
+      type: 'home/save',
+      payload: {
+        content: [],
+      },
+    });
+  };
+
   render() {
+    const {
+      home: { number, content },
+    } = this.props;
     return (
       <View>
-        <Text>你好{this.props.home.number}</Text>
+        <Text>你好：{number}</Text>
         <Button title="加" onPress={this.addNum} />
         <Button title="减" onPress={this.subNum} />
+        <Button title="异步请求" onPress={this.fetchText} />
+        <View>
+          <Text>111</Text>
+        </View>
+        <Button title="清除数据" onPress={this.clearContent} />
+        <Text>
+          结果：
+          {content.map(item => (
+            <Text>{item.name}；</Text>
+          ))}
+        </Text>
       </View>
     );
   }

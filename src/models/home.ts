@@ -1,4 +1,5 @@
 import { Reducer } from 'redux';
+import { Effect } from '@/models/connect';
 
 export interface IHomeState {
   data: string[];
@@ -6,16 +7,29 @@ export interface IHomeState {
   // 验证码
   verCode: string;
   number: number;
+  content: any[];
 }
 
 export interface IHomeModelType {
   namespace: 'home';
   state: IHomeState;
-  effects: {};
+  effects: {
+    baidu: Effect;
+  };
   reducers: {
     save: Reducer<IHomeState>;
   };
 }
+
+const fetchTest = async () => {
+  const res = await fetch(
+    'https://www.zhihu.com/api/v3/oauth/sms/supported_countries'
+  );
+  console.log(res);
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
 
 const home: IHomeModelType = {
   namespace: 'home',
@@ -24,8 +38,24 @@ const home: IHomeModelType = {
     v: '1.0',
     verCode: '',
     number: 1,
+    content: [],
   },
-  effects: {},
+  effects: {
+    /**
+     * 说明：获取百度网页
+     * @author allahbin
+     */
+    *baidu(_, { call, put }) {
+      const res = yield call(fetchTest);
+      console.log(res.data);
+      yield put({
+        type: 'save',
+        payload: {
+          content: res.data,
+        },
+      });
+    },
+  },
 
   reducers: {
     save(state, { payload }) {
