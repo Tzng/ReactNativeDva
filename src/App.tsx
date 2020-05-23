@@ -1,13 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -17,7 +7,9 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import {Provider} from 'react-redux';
+import * as dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn'; // 导入本地化语言
 import {
   Header,
   LearnMoreLinks,
@@ -25,12 +17,20 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import dva from './models/dva';
+import models from './models/index';
 
-declare const global: {HermesInternal: null | {}};
+const dvaApp: any = dva.createApp({
+  initialState: {},
+  models: models,
+});
+
+const store = dvaApp.getStore();
+dayjs.locale('zh-cn'); // 使用本地化语言
 
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -72,7 +72,7 @@ const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </Provider>
   );
 };
 
