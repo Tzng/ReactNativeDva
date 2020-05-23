@@ -71,6 +71,12 @@ class Home extends Component<IProps, IState> {
     });
   };
 
+  toNavigatorsTest = () => {
+    NavigationUtil.toPage('NavigatorsTest', {
+      title: 'NavigatorsTest',
+    });
+  };
+
   render() {
     const {
       home: { number, content },
@@ -80,6 +86,7 @@ class Home extends Component<IProps, IState> {
       <View>
         <Text>你好：{number}</Text>
         <Button title="去详情" onPress={this.toDetails} />
+        <Button title="导航测试" onPress={this.toNavigatorsTest} />
         <Button title="加" onPress={this.addNum} />
         <Button title="减" onPress={this.subNum} />
         <Button title="获取数据" onPress={this.fetchText} />
