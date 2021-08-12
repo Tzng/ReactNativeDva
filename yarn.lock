@@ -5360,10 +5360,10 @@ react-native-screens@^2.8.0:
   resolved "https://registry.npm.taobao.org/react-native-screens/download/react-native-screens-2.8.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-screens%2Fdownload%2Freact-native-screens-2.8.0.tgz#9f989096fc5ccf248e0dfa93a74f1a64057e15f1"
   integrity sha1-n5iQlvxczySODfqTp08aZAV+FfE=
 
-react-native-webview@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.npm.taobao.org/react-native-webview/download/react-native-webview-9.4.0.tgz#108da34a6c7e1c032dcabc942b7e4947ca1d8028"
-  integrity sha1-EI2jSmx+HAMtyryUK35JR8odgCg=
+react-native-webview@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.0.0.tgz#d667cbcc772e963fe88a4156290d25fe47ed43b0"
+  integrity sha512-gzID5ebCFVNkxreuabClymo6QkJbXCLEtiIUY9QAhxY58HsDUp8x0YzDVEROYyEJ4ghL71koAOeQRDNAgNnh1w==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
